@@ -188,7 +188,7 @@ class _DetailArticlePageState extends State<DetailArticlePage> {
             style: const TextStyle(fontSize: 16),
           ),
         ),
-        articleContent!.isEmpty
+        articleContent!.isEmpty || widget.article?.description == null
             ? CupertinoActivityIndicator()
             : Padding(
                 padding:
@@ -212,7 +212,15 @@ class _DetailArticlePageState extends State<DetailArticlePage> {
   }
 
   void _onFloatingActionButtonPressed(BuildContext context) async {
-    BlocProvider.of<LocalArticleCubit>(context).saveArticles(widget.article!);
+    BlocProvider.of<LocalArticleCubit>(context).saveArticles(ArticleEntity(
+        id: widget.article?.id,
+        author: widget.article?.author,
+        title: widget.article?.title,
+        description: articleContent,
+        imageUrl: widget.article?.imageUrl,
+        content: widget.article?.content,
+        publishedAt: widget.article?.publishedAt,
+        articleUrl: widget.article?.articleUrl));
 
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_clean_architecture/const.dart';
-import 'package:news_app_clean_architecture/features/data/data_sources/remote_data_source_impl.dart';
 import 'package:news_app_clean_architecture/features/domain/entities/article_entity.dart';
 import 'package:news_app_clean_architecture/features/presentation/cubit/news/cubit/news_cubit.dart';
 import 'package:news_app_clean_architecture/features/presentation/widgets/article_card_widget.dart';
